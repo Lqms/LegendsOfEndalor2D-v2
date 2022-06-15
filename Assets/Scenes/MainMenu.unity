@@ -1349,6 +1349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a81f6d866064b545a27a4c35d9b2046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _settingsConfig: {fileID: 11400000, guid: 05228e1e1661c9b4ebffd08d274e1b26, type: 2}
   _continue: {fileID: 880498392}
   _newGame: {fileID: 1847812401}
   _loadGame: {fileID: 1242259252}

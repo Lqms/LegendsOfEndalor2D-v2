@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using IJunior.TypedScenes;
 
 public class Menu : MonoBehaviour
 {
+    [SerializeField] private SettingsConfig _settingsConfig;
+
     [SerializeField] private Button _continue;
     [SerializeField] private Button _newGame;
     [SerializeField] private Button _loadGame;
@@ -36,6 +39,7 @@ public class Menu : MonoBehaviour
 
     private void OnNewGameButtonClick()
     {
+        CreateCharacter.Load(_settingsConfig);
         Debug.Log("New game");
     }
 
