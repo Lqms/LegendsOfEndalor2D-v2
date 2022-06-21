@@ -8,28 +8,32 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private SettingsConfig _settingsConfig;
 
-    [SerializeField] private Button _continue;
-    [SerializeField] private Button _newGame;
-    [SerializeField] private Button _loadGame;
-    [SerializeField] private Button _settings;
-    [SerializeField] private Button _exit;
+    [Header ("Buttons")]
+    [SerializeField] private Button _continueButton;
+    [SerializeField] private Button _newGameButton;
+    [SerializeField] private Button _loadGameButton;
+    [SerializeField] private Button _settingsButton;
+    [SerializeField] private Button _exitButton;
+
+    [Header("UI Objects")]
+    [SerializeField] private Settings _settings;
 
     private void OnEnable()
     {
-        _continue.onClick.AddListener(OnContinueButtonClick);
-        _newGame.onClick.AddListener(OnNewGameButtonClick);
-        _loadGame.onClick.AddListener(OnLoadGameButtonClick);
-        _settings.onClick.AddListener(OnSettingsButtonClick);
-        _exit.onClick.AddListener(OnExitButtonClick);
+        _continueButton.onClick.AddListener(OnContinueButtonClick);
+        _newGameButton.onClick.AddListener(OnNewGameButtonClick);
+        _loadGameButton.onClick.AddListener(OnLoadGameButtonClick);
+        _settingsButton.onClick.AddListener(OnSettingsButtonClick);
+        _exitButton.onClick.AddListener(OnExitButtonClick);
     }
 
     private void OnDisable()
     {
-        _continue.onClick.RemoveListener(OnContinueButtonClick);
-        _newGame.onClick.RemoveListener(OnNewGameButtonClick);
-        _loadGame.onClick.RemoveListener(OnLoadGameButtonClick);
-        _settings.onClick.RemoveListener(OnSettingsButtonClick);
-        _exit.onClick.RemoveListener(OnExitButtonClick);
+        _continueButton.onClick.RemoveListener(OnContinueButtonClick);
+        _newGameButton.onClick.RemoveListener(OnNewGameButtonClick);
+        _loadGameButton.onClick.RemoveListener(OnLoadGameButtonClick);
+        _settingsButton.onClick.RemoveListener(OnSettingsButtonClick);
+        _exitButton.onClick.RemoveListener(OnExitButtonClick);
     }
 
     private void OnContinueButtonClick()
@@ -50,6 +54,7 @@ public class Menu : MonoBehaviour
 
     private void OnSettingsButtonClick()
     {
+        _settings.gameObject.SetActive(true);
         Debug.Log("Settings");
     }
 
