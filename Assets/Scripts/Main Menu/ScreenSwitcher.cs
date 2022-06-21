@@ -32,7 +32,7 @@ public class ScreenSwitcher : MonoBehaviour
         {
             _firstScreen.SetActive(false);
             _secondScreen.SetActive(true);
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
