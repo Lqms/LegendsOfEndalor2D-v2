@@ -17,6 +17,7 @@ public class Menu : MonoBehaviour
 
     [Header("UI Objects")]
     [SerializeField] private Settings _settings;
+    [SerializeField] private LoadGameScrollView _loadGameScrollView;
 
     private void OnEnable()
     {
@@ -49,6 +50,7 @@ public class Menu : MonoBehaviour
 
     private void OnLoadGameButtonClick()
     {
+        _loadGameScrollView.gameObject.SetActive(true);
         Debug.Log("Load game");
     }
 
