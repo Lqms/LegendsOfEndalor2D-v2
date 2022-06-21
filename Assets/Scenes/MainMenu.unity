@@ -717,6 +717,7 @@ GameObject:
   - component: {fileID: 722407117}
   - component: {fileID: 722407119}
   - component: {fileID: 722407118}
+  - component: {fileID: 722407120}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -777,10 +778,10 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 1
   m_fontColorGradient:
-    topLeft: {r: 1, g: 0.78787875, b: 0, a: 1}
-    topRight: {r: 1, g: 0.72156864, b: 0, a: 1}
-    bottomLeft: {r: 1, g: 0.78787875, b: 0, a: 1}
-    bottomRight: {r: 1, g: 0.72156864, b: 0, a: 1}
+    topLeft: {r: 1, g: 0.78787875, b: 0, a: 0}
+    topRight: {r: 1, g: 0.78787875, b: 0, a: 0}
+    bottomLeft: {r: 1, g: 0.78787875, b: 0, a: 0}
+    bottomRight: {r: 1, g: 0.78787875, b: 0, a: 0}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -840,6 +841,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722407116}
   m_CullTransparentMesh: 1
+--- !u!114 &722407120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722407116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d51a8d3f056f8dc488acaf41ea81299e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _header: {fileID: 722407118}
 --- !u!1 &775495437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,6 +1679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstScreen: {fileID: 1616807793}
   _secondScreen: {fileID: 1483805078}
+  _header: {fileID: 722407120}
 --- !u!4 &1544343153
 Transform:
   m_ObjectHideFlags: 0
@@ -1730,6 +1745,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 1572781086}
+  _growUpSize: 1.05
+  _growDownSize: 1
+  _growIntensity: 0.3
+  _header: {fileID: 722407120}
 --- !u!114 &1572781089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1763,8 +1782,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043B\u044E\u0431\u0443\u044E
-    \u043A\u043B\u0430\u0432\u0438\u0448\u0443 \u0434\u043B\u044F \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0435\u043D\u0438\u044F..."
+  m_Text: 
 --- !u!222 &1572781090
 CanvasRenderer:
   m_ObjectHideFlags: 0
