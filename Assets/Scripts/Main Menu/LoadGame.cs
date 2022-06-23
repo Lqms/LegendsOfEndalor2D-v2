@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadGameScrollView : MonoBehaviour
+public class LoadGame : MonoBehaviour
 {
     [SerializeField] private Button _close;
 
