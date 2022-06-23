@@ -56,6 +56,7 @@ public class Menu : MonoBehaviour
 
     private void OnSettingsButtonClick()
     {
+        // AudioListener.volume = 0;
         _settings.gameObject.SetActive(true);
         Debug.Log("Settings");
     }
