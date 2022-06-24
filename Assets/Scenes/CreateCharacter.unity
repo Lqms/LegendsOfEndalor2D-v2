@@ -1131,9 +1131,9 @@ MonoBehaviour:
   _characterBackground: {fileID: 1091078138}
   _characterImage: {fileID: 3752128}
   _characterViews:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1288050292}
+  - {fileID: 1288050291}
+  - {fileID: 1288050290}
 --- !u!4 &648994443
 Transform:
   m_ObjectHideFlags: 0
