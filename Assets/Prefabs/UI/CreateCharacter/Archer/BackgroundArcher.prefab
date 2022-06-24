@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5920384246239442340}
   - component: {fileID: 5920384246178468395}
   m_Layer: 5
-  m_Name: Background
+  m_Name: BackgroundArcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
