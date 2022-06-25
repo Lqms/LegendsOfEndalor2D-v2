@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using IJunior.TypedScenes;
 
@@ -36,7 +37,11 @@ public class Settings : MonoBehaviour
     private void BackToMenu()
     {
         Time.timeScale = 1;
-        MainMenu.Load();
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            _panelSettings.SetActive(false);
+        else
+            MainMenu.Load();
     }
 
     private void ChangeVolume(float newValue)

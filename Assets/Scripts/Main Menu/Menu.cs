@@ -15,7 +15,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private Button _exitButton;
 
     [Header("UI Objects")]
-    [SerializeField] private Settings _settings;
+    [SerializeField] private GameObject _panelSettings;
     [SerializeField] private LoadGame _loadGame;
 
     public event UnityAction NewGameButtonClicked;
@@ -57,7 +57,7 @@ public class Menu : MonoBehaviour
 
     private void OnSettingsButtonClick()
     {
-        _settings.gameObject.SetActive(true);
+        _panelSettings.gameObject.SetActive(true);
         Debug.Log("Settings");
     }
 
