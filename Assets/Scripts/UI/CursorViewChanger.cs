@@ -10,10 +10,16 @@ public class CursorViewChanger : MonoBehaviour
     [SerializeField] private Texture2D _mouseTexture;
     [SerializeField] private bool _isCursorActiveOnScene;
 
-    void Awake()
+    private void OnEnable()
     {
-        Instance = GetComponent<CursorViewChanger>();
+        Instance = this;
         Cursor.visible = false;
+    }
+
+    private void OnDisable()
+    {
+        if (Instance != null)
+            Instance = null;
     }
 
     void OnGUI()

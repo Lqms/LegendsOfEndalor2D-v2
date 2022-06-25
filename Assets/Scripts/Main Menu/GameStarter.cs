@@ -27,6 +27,7 @@ public class GameStarter : MonoBehaviour
     private void StartNewGame()
     {
         _UIElements.SetActive(false);
+        CursorViewChanger.Instance.IsCursorAtcive = false;
         StartCoroutine(StartNewGameCoroutine());
     }
 
