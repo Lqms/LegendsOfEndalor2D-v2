@@ -40,7 +40,7 @@ public class GameStarter : MonoBehaviour
             alpha -= Time.deltaTime;
             _color = new Color (_color.r, _color.g, _color.b, alpha);
             _image.color = _color;
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return new WaitForSeconds(Time.deltaTime * 2);
         }
 
         CreateCharacter.Load();
