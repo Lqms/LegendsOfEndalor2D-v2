@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using IJunior.TypedScenes;
 
@@ -16,6 +17,8 @@ public class Menu : MonoBehaviour
     [Header("UI Objects")]
     [SerializeField] private Settings _settings;
     [SerializeField] private LoadGame _loadGame;
+
+    public event UnityAction NewGameButtonClicked;
 
     private void OnEnable()
     {
@@ -42,7 +45,7 @@ public class Menu : MonoBehaviour
 
     private void OnNewGameButtonClick()
     {
-        CreateCharacter.Load();
+        NewGameButtonClicked?.Invoke();
         Debug.Log("New game");
     }
 
