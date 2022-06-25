@@ -32,6 +32,7 @@ public class ScreenSwitcher : MonoBehaviour
         {
             _firstScreen.SetActive(false);
             _secondScreen.SetActive(true);
+            CursorViewChanger.Instance.IsCursorAtcive = true;
             Destroy(gameObject);
         }
     }

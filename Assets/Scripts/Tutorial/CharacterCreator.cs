@@ -21,5 +21,7 @@ public class CharacterCreator : MonoBehaviour, ISceneLoadHandler<Classes>
                 Debug.Log("Mage");
                 break;
         }
+
+        Destroy(gameObject);
     }
 }

@@ -800,6 +800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _panelSettings: {fileID: 2475922104728918555}
   _backToMenuButton: {fileID: 3229084612229569078}
+  _volumeSlider: {fileID: 3229084611961483580}
 --- !u!1 &2475922104728918555
 GameObject:
   m_ObjectHideFlags: 0
