@@ -8,13 +8,16 @@ using IJunior.TypedScenes;
 public class Settings : MonoBehaviour
 {
     [SerializeField] private GameObject _panelSettings;
+    [SerializeField] private GameObject _panelBuindings;
     [SerializeField] private Button _backToMenuButton;
     [SerializeField] private Slider _volumeSlider;
+    [SerializeField] private Button _buindingsButton;
 
     private void OnEnable()
     {
         _volumeSlider.onValueChanged.AddListener(ChangeVolume);
         _backToMenuButton.onClick.AddListener(BackToMenu);
+        _buindingsButton.onClick.AddListener(OpenBuindings);
         _volumeSlider.value = AudioListener.volume;
     }
 
@@ -22,6 +25,7 @@ public class Settings : MonoBehaviour
     {
         _volumeSlider.onValueChanged.RemoveListener(ChangeVolume);
         _backToMenuButton.onClick.RemoveListener(BackToMenu);
+        _buindingsButton.onClick.RemoveListener(OpenBuindings);
     }
 
     private void Update()
@@ -29,6 +33,7 @@ public class Settings : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             _panelSettings.SetActive(!_panelSettings.activeSelf);
+            _panelBuindings.SetActive(false);
             CursorViewChanger.Instance.IsCursorAtcive = _panelSettings.activeSelf;
             Time.timeScale = _panelSettings.activeSelf ? 0 : 1;
         }
@@ -42,6 +47,11 @@ public class Settings : MonoBehaviour
             _panelSettings.SetActive(false);
         else
             MainMenu.Load();
+    }
+
+    private void OpenBuindings()
+    {
+        _panelBuindings.SetActive(true);
     }
 
     private void ChangeVolume(float newValue)
