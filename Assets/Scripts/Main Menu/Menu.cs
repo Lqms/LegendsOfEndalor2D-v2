@@ -6,8 +6,6 @@ using IJunior.TypedScenes;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField] private SettingsConfig _settingsConfig;
-
     [Header ("Buttons")]
     [SerializeField] private Button _continueButton;
     [SerializeField] private Button _newGameButton;
@@ -44,7 +42,7 @@ public class Menu : MonoBehaviour
 
     private void OnNewGameButtonClick()
     {
-        CreateCharacter.Load(_settingsConfig);
+        CreateCharacter.Load();
         Debug.Log("New game");
     }
 
