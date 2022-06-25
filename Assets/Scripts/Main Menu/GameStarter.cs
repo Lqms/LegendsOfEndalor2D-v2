@@ -7,6 +7,7 @@ using IJunior.TypedScenes;
 public class GameStarter : MonoBehaviour
 {
     [SerializeField] private Menu _menu;
+    [SerializeField] private GameObject _UIElements;
 
     private Image _image;
     private Color _color;
@@ -25,17 +26,22 @@ public class GameStarter : MonoBehaviour
 
     private void StartNewGame()
     {
+        _UIElements.SetActive(false);
         StartCoroutine(StartNewGameCoroutine());
     }
 
     private IEnumerator StartNewGameCoroutine()
     {
-        while (_color.a > 0)
+        float alpha = 1;
+
+        while (alpha > 0)
         {           
-            _color = new Color (_color.r, _color.g, _color.b, _color.a + Time.deltaTime);
+            alpha -= Time.deltaTime;
+            _color = new Color (_color.r, _color.g, _color.b, alpha);
+            _image.color = _color;
+            yield return new WaitForSeconds(Time.deltaTime);
         }
 
         CreateCharacter.Load();
-        yield return null;
     }
 }
