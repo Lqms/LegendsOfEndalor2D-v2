@@ -3255,7 +3255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isCursorActiveOnScene: 1
   _mouseTexture: {fileID: 2800000, guid: 51cb6ee928f89b64691ef4dfd57c03e9, type: 3}
-  _mouseOffset: {x: 18, y: 10}
+  _mouseOffset: {x: 18, y: 6}
 --- !u!1001 &2122990824
 PrefabInstance:
   m_ObjectHideFlags: 0
