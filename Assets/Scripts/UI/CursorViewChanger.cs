@@ -5,30 +5,36 @@ using UnityEngine;
 public class CursorViewChanger : MonoBehaviour
 {
     public static CursorViewChanger Instance;
-    public bool IsCursorAtcive;
 
-    [SerializeField] private Texture2D _mouseTexture;
     [SerializeField] private bool _isCursorActiveOnScene;
+    [SerializeField] private Texture2D _mouseTexture;
+    [SerializeField] private Vector2 _mouseOffset;
 
     private void OnEnable()
     {
-        Instance = this;
-        Cursor.visible = false;
+        if (Instance != null)
+            Destroy(this);
+
+        if (Instance == null)
+            Instance = this;
+
+        Cursor.SetCursor(_mouseTexture, _mouseOffset, CursorMode.ForceSoftware);
+
+        if (_isCursorActiveOnScene == false)
+            Cursor.visible = false;
     }
 
     private void OnDisable()
     {
-        if (Instance != null)
+        if (Instance == this)
             Instance = null;
     }
 
-    void OnGUI()
+    public void SetCursorVisible(bool isVisible)
     {
-        if (IsCursorAtcive || _isCursorActiveOnScene)
-        {
-            Vector2 mouse_pos = Event.current.mousePosition;
-            GUI.depth = 0;
-            GUI.Label(new Rect(mouse_pos.x - 18f, mouse_pos.y - 10f, _mouseTexture.width, _mouseTexture.height), _mouseTexture);
-        }
+        Cursor.visible = isVisible;
+
+        if (_isCursorActiveOnScene)
+            Cursor.visible = true;
     }
 }

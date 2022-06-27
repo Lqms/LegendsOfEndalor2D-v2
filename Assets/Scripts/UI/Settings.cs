@@ -13,6 +13,8 @@ public class Settings : MonoBehaviour
     [SerializeField] private Slider _volumeSlider;
     [SerializeField] private Button _buindingsButton;
 
+    private AsyncOperation _asyncOperationForLoadingScene;
+
     private void OnEnable()
     {
         _volumeSlider.onValueChanged.AddListener(ChangeVolume);
@@ -33,8 +35,8 @@ public class Settings : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             _panelSettings.SetActive(!_panelSettings.activeSelf);
-            _panelBuindings.SetActive(false);
-            CursorViewChanger.Instance.IsCursorAtcive = _panelSettings.activeSelf;
+            _panelBuindings.SetActive(false);          
+            CursorViewChanger.Instance.SetCursorVisible(_panelSettings.activeSelf);
             Time.timeScale = _panelSettings.activeSelf ? 0 : 1;
         }
     }
@@ -44,9 +46,14 @@ public class Settings : MonoBehaviour
         Time.timeScale = 1;
 
         if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
             _panelSettings.SetActive(false);
+        }
         else
-            MainMenu.Load();
+        {
+            _asyncOperationForLoadingScene = MainMenu.LoadAsync();
+            SceneLoadProgress.Instance.LoadScene(_asyncOperationForLoadingScene);
+        }
     }
 
     private void OpenBuindings()
@@ -56,6 +63,6 @@ public class Settings : MonoBehaviour
 
     private void ChangeVolume(float newValue)
     {
-        AudioListener.volume = _volumeSlider.value;
+        AudioListener.volume = newValue;
     }
 }

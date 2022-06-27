@@ -25,14 +25,12 @@ public class ScreenSwitcher : MonoBehaviour
         _isActive = true;
     }
 
-
     private void Update()
     {
         if (Input.anyKeyDown && _isActive)
         {
             _firstScreen.SetActive(false);
             _secondScreen.SetActive(true);
-            CursorViewChanger.Instance.IsCursorAtcive = true;
             Destroy(gameObject);
         }
     }

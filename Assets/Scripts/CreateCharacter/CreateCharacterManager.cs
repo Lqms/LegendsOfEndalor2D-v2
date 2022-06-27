@@ -18,6 +18,8 @@ public class CreateCharacterManager : MonoBehaviour
     [SerializeField] private GameObject _characterImage;
     [SerializeField] private Button _buttonChoose;
 
+    public CharacterView[] CharacterViews => _characterViews;
+
     public event UnityAction ButtonChooseClicked;
 
     private void OnEnable()

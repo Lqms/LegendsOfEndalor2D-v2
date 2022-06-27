@@ -11,13 +11,18 @@ public class AudioManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Instance = this;
+        if (Instance != null)
+            Destroy(this);
+
+        if (Instance == null)
+            Instance = this;
+        
         _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnDisable()
     {
-        if (Instance != null)
+        if (Instance == this)
             Instance = null;
     }
 

@@ -8,9 +8,12 @@ public class GameStarter : MonoBehaviour
 {
     [SerializeField] private Menu _menu;
     [SerializeField] private GameObject _UIElements;
+    [SerializeField] private float _speed = 2;
 
     private Image _image;
     private Color _color;
+
+    private AsyncOperation _asyncOperationForLoadingScene;
 
     private void OnEnable()
     {
@@ -27,7 +30,7 @@ public class GameStarter : MonoBehaviour
     private void StartNewGame()
     {
         _UIElements.SetActive(false);
-        CursorViewChanger.Instance.IsCursorAtcive = false;
+        CursorViewChanger.Instance.SetCursorVisible(false);
         StartCoroutine(StartNewGameCoroutine());
     }
 
@@ -40,9 +43,10 @@ public class GameStarter : MonoBehaviour
             alpha -= Time.deltaTime;
             _color = new Color (_color.r, _color.g, _color.b, alpha);
             _image.color = _color;
-            yield return new WaitForSeconds(Time.deltaTime * 2);
+            yield return new WaitForSeconds(Time.deltaTime * _speed);
         }
 
-        CreateCharacter.Load();
+        _asyncOperationForLoadingScene = CreateCharacter.LoadAsync();
+        SceneLoadProgress.Instance.LoadScene(_asyncOperationForLoadingScene);
     }
 }

@@ -28,7 +28,7 @@ public class ClassSwitcher : MonoBehaviour
     {
         _classId++;
 
-        if (_classId == 3)
+        if (_classId > (int)Classes.Mage) // костыль блин
             _classId = 0;
 
         switch (_classId)

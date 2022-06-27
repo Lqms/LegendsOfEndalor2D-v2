@@ -16,6 +16,8 @@ public class AcceptChoose : MonoBehaviour
     [SerializeField] private TMP_Text _text;
     [SerializeField] private Button _button;
 
+    private AsyncOperation _asyncOperationForLoadingScene;
+
     private void OnEnable()
     {
         _button.onClick.AddListener(StartGame);
@@ -37,28 +39,12 @@ public class AcceptChoose : MonoBehaviour
 
     private void OnSwitchClass(int classID)
     {
-        _text.text = "Start as a ";
-
-        switch (classID)
-        {
-            case 0:
-                _text.text += "Warrior";
-                break;
-
-            case 1:
-                _text.text += "Archer";
-                break;
-
-            case 2:
-                _text.text += "Mage";
-                break;
-        }
-
-        _text.text += "?";
+        _text.text = $"Start as a {_createCharacterManager.CharacterViews[classID].Name} ?";
     }
 
     private void StartGame()
     {
-        Tutorial.Load(_classSwitcher.CurrentClass);
+        _asyncOperationForLoadingScene = Tutorial.LoadAsync(_classSwitcher.CurrentClass);
+        SceneLoadProgress.Instance.LoadScene(_asyncOperationForLoadingScene);
     }
 }
