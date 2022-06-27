@@ -4,12 +4,16 @@ using UnityEngine;
 using IJunior.TypedScenes;
 
 public class CharacterCreator : MonoBehaviour, ISceneLoadHandler<Classes>
-{     
+{
+    [SerializeField] private GameObject[] _characterPrefabs;
+
     public void OnSceneLoaded(Classes argument)
     {
+        /*
         switch (argument)
         {
             case Classes.Warrior:
+                
                 Debug.Log("Warrior");
                 break;
 
@@ -21,7 +25,9 @@ public class CharacterCreator : MonoBehaviour, ISceneLoadHandler<Classes>
                 Debug.Log("Mage");
                 break;
         }
+        */
 
+        Instantiate(_characterPrefabs[(int)argument], transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
