@@ -2336,7 +2336,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 138.15
+  m_fontSize: 154.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5168,7 +5168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menu: {fileID: 942390102}
   _UIElements: {fileID: 40841867}
-  _speed: 0
+  _speed: 2
 --- !u!1 &2069419304
 GameObject:
   m_ObjectHideFlags: 0
