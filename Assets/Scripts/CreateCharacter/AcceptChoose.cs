@@ -10,13 +10,12 @@ public class AcceptChoose : MonoBehaviour
     [Header ("Script Objects")]
     [SerializeField] private CreateCharacterManager _createCharacterManager;
     [SerializeField] private ClassSwitcher _classSwitcher;
+    [SerializeField] private Intro _intro;
 
     [Header ("UI Objects")]
     [SerializeField] private GameObject _panelAcceptChoose;
     [SerializeField] private TMP_Text _text;
     [SerializeField] private Button _button;
-
-    private AsyncOperation _asyncOperationForLoadingScene;
 
     private void OnEnable()
     {
@@ -44,12 +43,6 @@ public class AcceptChoose : MonoBehaviour
 
     private void StartIntro()
     {
-
-    }
-
-    private void StartGame()
-    {
-        _asyncOperationForLoadingScene = Tutorial.LoadAsync(_classSwitcher.CurrentClass);
-        SceneLoadProgress.Instance.LoadScene(_asyncOperationForLoadingScene);
+        _intro.gameObject.SetActive(true);
     }
 }
