@@ -20,14 +20,14 @@ public class AcceptChoose : MonoBehaviour
 
     private void OnEnable()
     {
-        _button.onClick.AddListener(StartGame);
+        _button.onClick.AddListener(StartIntro);
         _classSwitcher.SwitchClassButtonClicked += OnSwitchClass;
         _createCharacterManager.ButtonChooseClicked += OnButtonChooseClicked;
     }
 
     private void OnDisable()
     {
-        _button.onClick.RemoveListener(StartGame);
+        _button.onClick.RemoveListener(StartIntro);
         _classSwitcher.SwitchClassButtonClicked -= OnSwitchClass;
         _createCharacterManager.ButtonChooseClicked -= OnButtonChooseClicked;
     }
@@ -40,6 +40,11 @@ public class AcceptChoose : MonoBehaviour
     private void OnSwitchClass(int classID)
     {
         _text.text = $"Start as a {_createCharacterManager.CharacterViews[classID].Name} ?";
+    }
+
+    private void StartIntro()
+    {
+
     }
 
     private void StartGame()

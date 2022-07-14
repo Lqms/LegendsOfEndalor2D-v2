@@ -4220,68 +4220,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1001 &841623455
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1397233731683457794, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397233731683457794, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397233731683457794, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397233731683457794, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397233731683457794, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397233731683457794, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397233731683457794, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397233731683457794, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397233731683457794, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397233731683457794, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397233731683457794, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397233731683457820, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
-      propertyPath: m_Name
-      value: Warrior
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
---- !u!4 &841623456 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1397233731683457794, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
-  m_PrefabInstance: {fileID: 841623455}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &905403954
 GameObject:
   m_ObjectHideFlags: 0
@@ -4565,7 +4503,7 @@ Transform:
   - {fileID: 793461135}
   - {fileID: 1463112361}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1463112360
 GameObject:
@@ -4618,7 +4556,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 841623456}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 3
