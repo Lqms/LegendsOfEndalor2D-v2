@@ -30,4 +30,10 @@ public class AudioManager : MonoBehaviour
     {
         _audioSource.PlayOneShot(clip);
     }
+
+    public void ChangeMainClip(AudioClip clip)
+    {
+        _audioSource.clip = clip;
+        _audioSource.Play();
+    }
 }

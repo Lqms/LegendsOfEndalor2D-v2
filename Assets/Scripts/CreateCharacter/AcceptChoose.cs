@@ -16,6 +16,8 @@ public class AcceptChoose : MonoBehaviour
     [SerializeField] private GameObject _panelAcceptChoose;
     [SerializeField] private TMP_Text _text;
     [SerializeField] private Button _button;
+    [SerializeField] private Image _imageAcceptChoose;
+    [SerializeField] private Button _buttonClose;
 
     private void OnEnable()
     {
@@ -43,6 +45,23 @@ public class AcceptChoose : MonoBehaviour
 
     private void StartIntro()
     {
+        _imageAcceptChoose.gameObject.SetActive(false);
+        _buttonClose.gameObject.SetActive(false);
+
+        StartCoroutine(CurtainCoroutine());
+    }
+
+    private IEnumerator CurtainCoroutine()
+    {
+        float alpha = 0;
+        
+        while (alpha < 1)
+        {
+            _panelAcceptChoose.GetComponent<Image>().color = new Color(0, 0, 0, alpha);
+            alpha += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
         _intro.gameObject.SetActive(true);
     }
 }

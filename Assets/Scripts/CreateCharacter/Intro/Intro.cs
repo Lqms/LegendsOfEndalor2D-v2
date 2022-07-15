@@ -13,27 +13,27 @@ public class Intro : MonoBehaviour
     [Header("UI Objects")]
     [SerializeField] private Image _currentSlideImage;
     [SerializeField] private TMP_Text _currentSlideText;
+    [SerializeField] private Settings _settings;
 
-    [Header("Intro objects")]
-    [SerializeField] private Sprite[] _slideImages;
-    [SerializeField] private string[] _slideTexts;
+    [Header("Slides")]
+    [SerializeField] private SlideInfo[] _slides;
 
-    [Header("Slideshow settings")]
-    [SerializeField] private float _imageChangeYSpeed = 50;
-    [SerializeField] private float _imageChangeXSpeed = 25;
-    [SerializeField] private float _changeSlideSpeed = 25;
+    [Header("Audio")]
+    [SerializeField] private AudioClip _introAudio;
 
     private AsyncOperation _asyncOperationForLoadingScene;
 
     private void OnEnable()
     {
         Cursor.visible = false;
+        _settings.gameObject.SetActive(false);
+        AudioManager.Instance.ChangeMainClip(_introAudio);
         StartCoroutine(PlayCoroutine());
     }
 
     private void Update()
     {
-        if (Input.anyKey)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             StartGame();
         }
@@ -41,26 +41,30 @@ public class Intro : MonoBehaviour
 
     private IEnumerator PlayCoroutine()
     {
-        for (int i = 0; i < _slideImages.Length; i++)
+        for (int i = 0; i < _slides.Length; i++)
         {
             float alpha = 0;
             _currentSlideText.text = "";
-            _currentSlideImage.sprite = _slideImages[i];
+            _currentSlideImage.sprite = _slides[i].Image;
             _currentSlideImage.color = new Color(1,1,1, alpha);
 
             while (alpha < 1)
             {
                 alpha += Time.deltaTime;
                 _currentSlideImage.color = new Color(1, 1, 1, alpha);
-
-                _currentSlideImage.gameObject.transform.position += 
-                    new Vector3(Time.deltaTime * _imageChangeXSpeed, -Time.deltaTime * _imageChangeYSpeed, 0);
-
                 yield return new WaitForSeconds(Time.deltaTime);
             }
 
-            _currentSlideText.text = _slideTexts[i];
-            yield return new WaitForSeconds(_changeSlideSpeed);
+            _currentSlideText.text = _slides[i].Text;
+            yield return new WaitForSeconds(_slides[i].Time);
+            _currentSlideText.text = "";
+
+            while (alpha > 0)
+            {
+                alpha -= Time.deltaTime;
+                _currentSlideImage.color = new Color(1, 1, 1, alpha);
+                yield return new WaitForSeconds(Time.deltaTime);
+            }
         }
 
         StartGame();
