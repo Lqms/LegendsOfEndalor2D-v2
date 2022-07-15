@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 177382321}
   - component: {fileID: 177382320}
   - component: {fileID: 177382319}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4058,6 +4058,8 @@ MonoBehaviour:
   - {fileID: 7104371895376471825, guid: 51de6fb2e06a3e04f81edec8d4a9731c, type: 3}
   - {fileID: 7327869560073888463, guid: 8f393cef91b27d547b814d07c5e6d941, type: 3}
   _virtualCamera: {fileID: 1463112362}
+  _characterPrefab: {fileID: 1397233731683457820, guid: 15381dd33eb559941b347471d092dcc0, type: 3}
+  _isTest: 1
 --- !u!4 &709944380
 Transform:
   m_ObjectHideFlags: 0
@@ -4152,7 +4154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793461132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.05, y: -0.72, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1293295033}
@@ -4531,7 +4533,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463112360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.05, y: -0.72, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 105476638}
