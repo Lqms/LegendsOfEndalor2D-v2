@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(SpriteRenderer))]
+[RequireComponent(typeof(PlayerSound))]
 public class PlayerMover : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float _speed;
+    [SerializeField] private float _dashPower;
 
     [Header("Jump")]
     [SerializeField] private float _jumpPower;
@@ -18,12 +20,14 @@ public class PlayerMover : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
+    private PlayerSound _playerSound;
 
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        _playerSound = GetComponent<PlayerSound>(); 
     }
 
     private void Update()
@@ -39,7 +43,15 @@ public class PlayerMover : MonoBehaviour
         if (_canJump && Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
+            _playerSound.PlayJumpClip();
             _animator.SetTrigger("Jump");
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            // _rigidBody.AddForce(Vector2.right * _dashPower, ForceMode2D.Force);
+            _animator.SetTrigger("Dash");
+            _playerSound.PlayDashClip();
         }
     }
 
