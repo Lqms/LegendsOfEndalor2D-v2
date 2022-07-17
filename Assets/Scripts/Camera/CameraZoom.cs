@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
-[RequireComponent(typeof(Camera))]
+[RequireComponent(typeof(CinemachineVirtualCamera))]
 public class CameraZoom : MonoBehaviour
 {
     [SerializeField] private int _maxZoomOut = 4;
     [SerializeField] private int _minZoomOut = 2;
 
-    private Camera _camera;
+    private CinemachineVirtualCamera _camera;
 
     private void Start()
     {
-        _camera = GetComponent<Camera>();
+        _camera = GetComponent<CinemachineVirtualCamera>();
     }
 
     void Update()
@@ -21,13 +22,13 @@ public class CameraZoom : MonoBehaviour
 
         if (scrollInput > 0)
         {
-            if (_camera.orthographicSize > _minZoomOut)
-                _camera.orthographicSize--;
+            if (_camera.m_Lens.OrthographicSize > _minZoomOut)
+                _camera.m_Lens.OrthographicSize--;
         }
         else if (scrollInput < 0)
         {
-            if (_camera.orthographicSize < _maxZoomOut)
-                _camera.orthographicSize++;
+            if (_camera.m_Lens.OrthographicSize < _maxZoomOut)
+                _camera.m_Lens.OrthographicSize++;
         }
     }
 }
