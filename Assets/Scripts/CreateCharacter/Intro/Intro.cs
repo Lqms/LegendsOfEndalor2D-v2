@@ -34,9 +34,7 @@ public class Intro : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        {
             StartGame();
-        }
     }
 
     private IEnumerator PlayCoroutine()
