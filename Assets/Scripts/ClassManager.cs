@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum Classes { Warrior, Archer, Mage }
 
-public class ClassManager : MonoBehaviour
+public class ClassManager
 {
-
+   
 }
