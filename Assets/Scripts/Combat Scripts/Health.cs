@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class HPObject : MonoBehaviour
+public class Health : MonoBehaviour
 {
     [SerializeField] private float _health;
     [SerializeField] private float _changeColorTime = 0.2f;
