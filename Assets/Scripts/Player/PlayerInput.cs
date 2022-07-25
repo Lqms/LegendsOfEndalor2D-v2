@@ -44,6 +44,11 @@ public class PlayerInput : MonoBehaviour
             _character.Jump();
         }
 
+        if (Input.GetKeyDown(_dash))
+        {
+            _character.Dash();
+        }
+
         if (Input.GetKeyDown(_attack))
         {
             _character.Attack();

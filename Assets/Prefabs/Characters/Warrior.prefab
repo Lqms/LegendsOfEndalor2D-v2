@@ -289,6 +289,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  _dashPower: 4
+  _jumpPower: 6
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 8
+  _radiusLegs: 1
+  _legs: {fileID: 8791729401780724636}
+  _canJump: 0
 --- !u!114 &4404422776273536343
 MonoBehaviour:
   m_ObjectHideFlags: 0

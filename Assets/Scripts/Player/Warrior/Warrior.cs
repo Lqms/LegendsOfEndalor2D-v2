@@ -30,7 +30,8 @@ public class Warrior : Character
 
     public override void Dash()
     {
-        Debug.Log("Dash");
+        _animator.PlayDash();
+        _mover.Dash();
     }
 
     public override void FlipSpriteX(bool isFlipped)
@@ -40,13 +41,14 @@ public class Warrior : Character
 
     public override void Jump()
     {
-        Debug.Log("Jump");
+        _mover.Jump();
+        _animator.PlayJump();
     }
 
     public override void Move(Vector2 direction)
     {
         _mover.Move(direction);
-        _animator.PlayRun();
+        _animator.PlayRun(true);
     }
 
     public override void PowerAttack()
@@ -62,6 +64,6 @@ public class Warrior : Character
     public override void StopMove()
     {
         _mover.StopMove();
-        _animator.PlayIdle();
+        _animator.PlayRun(false);
     }
 }

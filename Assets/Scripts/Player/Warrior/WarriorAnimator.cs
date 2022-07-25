@@ -7,26 +7,27 @@ public class WarriorAnimator : MonoBehaviour
 {
     private Animator _animator;
 
-    private const string Idle = "WarriorIdleAnim";
-    private const string Run = "WarriorRunAnim";
+    private const string IsRunning = "IsRunning";
+    private const string Jump = "Jump";
+    private const string Dash = "Dash";
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
     }
 
-    public void PlayIdle()
+    public void PlayRun(bool isPlaying)
     {
-        _animator.Play(Idle);
+        _animator.SetBool(IsRunning, isPlaying);
     }
 
-    public void PlayRun()
+    public void PlayJump()
     {
-        _animator.Play(Run);
+        _animator.SetTrigger(Jump);
     }
 
-    public void StopPlayBack()
+    public void PlayDash()
     {
-        _animator.StopPlayback();
+        _animator.SetTrigger(Dash);
     }
 }
