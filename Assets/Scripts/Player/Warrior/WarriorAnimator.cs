@@ -10,6 +10,8 @@ public class WarriorAnimator : MonoBehaviour
     private const string IsRunning = "IsRunning";
     private const string Jump = "Jump";
     private const string Dash = "Dash";
+    private const string Attack = "Attack";
+    private const string Strike = "Strike";
 
     private void Start()
     {
@@ -29,5 +31,15 @@ public class WarriorAnimator : MonoBehaviour
     public void PlayDash()
     {
         _animator.SetTrigger(Dash);
+    }
+
+    public void PlayAttack()
+    {
+        _animator.SetTrigger(Attack);
+    }
+
+    public void PlayStrike()
+    {
+        _animator.SetTrigger(Strike);
     }
 }

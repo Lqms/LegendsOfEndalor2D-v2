@@ -5,22 +5,26 @@ using UnityEngine;
 [RequireComponent(typeof(WarriorMover))]
 [RequireComponent(typeof(WarriorSpriteRenderer))]
 [RequireComponent(typeof(WarriorAnimator))]
+[RequireComponent(typeof(WarriorCombat))]
 public class Warrior : Character
 {
     private WarriorMover _mover;
     private WarriorSpriteRenderer _spriteRendeter;
     private WarriorAnimator _animator;
+    private WarriorCombat _combat;
 
     private void Start()
     {
         _spriteRendeter = GetComponent<WarriorSpriteRenderer>();
         _mover = GetComponent<WarriorMover>();
         _animator = GetComponent<WarriorAnimator>();
+        _combat = GetComponent<WarriorCombat>();
     }
 
     public override void Attack()
     {
-        Debug.Log("Attack");
+        _combat.Attack(_spriteRendeter.FlipX);
+        _animator.PlayAttack();
     }
 
     public override void Block(bool isBlocking)
@@ -51,9 +55,10 @@ public class Warrior : Character
         _animator.PlayRun(true);
     }
 
-    public override void PowerAttack()
+    public override void Strike()
     {
-        Debug.Log("PowerAttack");
+        _combat.Strike(_spriteRendeter.FlipX);
+        _animator.PlayStrike();
     }
 
     public override void Ultimate()
