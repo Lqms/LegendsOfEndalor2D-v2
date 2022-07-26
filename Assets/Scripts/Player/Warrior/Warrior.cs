@@ -28,6 +28,8 @@ public class Warrior : Character
         if (_isPaused)
             return;
 
+        Pause();
+
         _combat.Attack(_spriteRendeter.FlipX);
         _animator.PlayAttack();
     }
@@ -37,6 +39,8 @@ public class Warrior : Character
         if (_isPaused && isBlocking)
             return;
 
+        Pause();
+
         _combat.Block(isBlocking);
         _animator.PlayBlock(isBlocking);
     }
@@ -45,6 +49,8 @@ public class Warrior : Character
     {
         if (_isPaused)
             return;
+
+        Pause();
 
         _animator.PlayDash();
         _mover.Dash();
@@ -59,6 +65,8 @@ public class Warrior : Character
     {
         if (_isPaused)
             return;
+
+        Pause();
 
         _mover.Jump();
         _animator.PlayJump();
@@ -82,6 +90,8 @@ public class Warrior : Character
     {
         if (_isPaused)
             return;
+
+        Pause();
 
         _combat.Strike(_spriteRendeter.FlipX);
         _animator.PlayStrike();

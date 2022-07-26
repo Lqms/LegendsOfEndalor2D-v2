@@ -37,12 +37,10 @@ public class PlayerInput : MonoBehaviour
         else if (Input.GetKeyDown(_block))
         {
             _character.Block(true);
-            _character.Pause();
         }
         else if (Input.GetKeyUp(_block))
         {
             _character.Block(false);
-            _character.Unpause();
         }
         else
         {
@@ -52,25 +50,21 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(_jump))
         {
             _character.Jump();
-            _character.Pause();
         }
 
         if (Input.GetKeyDown(_dash))
         {
             _character.Dash();
-            _character.Pause();
         }
 
         if (Input.GetKeyDown(_attack))
         {
             _character.Attack();
-            _character.Pause();
         }
 
         if (Input.GetKeyDown(_strike))
         {
             _character.Strike();
-            _character.Pause();
         }
     }
 }
