@@ -361,10 +361,12 @@ MonoBehaviour:
   _attackProjectileDamage: 25
   _strikeProjectile: {fileID: 5280436432683924691, guid: 56985a374b8f8d74691a960a1a6acdad, type: 3}
   _strikeProjectileTime: 2
-  _strikeProjectileSpeed: 5
+  _strikeProjectileSpeed: 10
   _strikeProjectileDamage: 15
   _leftArm: {fileID: 6607229327390038600}
   _rightArm: {fileID: 5545319135424967347}
+  _defenseRate: 100
+  _currentDefenseRate: 0
 --- !u!1 &5541752638692435796
 GameObject:
   m_ObjectHideFlags: 0

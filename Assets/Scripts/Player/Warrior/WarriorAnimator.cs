@@ -12,6 +12,7 @@ public class WarriorAnimator : MonoBehaviour
     private const string Dash = "Dash";
     private const string Attack = "Attack";
     private const string Strike = "Strike";
+    private const string IsBlocking = "IsBlocking";
 
     private void Start()
     {
@@ -41,5 +42,10 @@ public class WarriorAnimator : MonoBehaviour
     public void PlayStrike()
     {
         _animator.SetTrigger(Strike);
+    }
+
+    public void PlayBlock(bool isBlocking)
+    {
+        _animator.SetBool(IsBlocking, isBlocking);
     }
 }

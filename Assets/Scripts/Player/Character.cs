@@ -48,4 +48,14 @@ public class Character : MonoBehaviour
     {
         
     }
+
+    public virtual void Unpause()
+    {
+
+    }
+
+    public virtual void Pause()
+    {
+
+    }
 }

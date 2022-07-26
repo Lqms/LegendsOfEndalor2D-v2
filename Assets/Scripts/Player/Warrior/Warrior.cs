@@ -13,6 +13,8 @@ public class Warrior : Character
     private WarriorAnimator _animator;
     private WarriorCombat _combat;
 
+    private bool _isPaused = false;
+
     private void Start()
     {
         _spriteRendeter = GetComponent<WarriorSpriteRenderer>();
@@ -23,17 +25,27 @@ public class Warrior : Character
 
     public override void Attack()
     {
+        if (_isPaused)
+            return;
+
         _combat.Attack(_spriteRendeter.FlipX);
         _animator.PlayAttack();
     }
 
     public override void Block(bool isBlocking)
     {
-        Debug.Log("Block");
+        if (_isPaused && isBlocking)
+            return;
+
+        _combat.Block(isBlocking);
+        _animator.PlayBlock(isBlocking);
     }
 
     public override void Dash()
     {
+        if (_isPaused)
+            return;
+
         _animator.PlayDash();
         _mover.Dash();
     }
@@ -45,24 +57,41 @@ public class Warrior : Character
 
     public override void Jump()
     {
+        if (_isPaused)
+            return;
+
         _mover.Jump();
         _animator.PlayJump();
     }
 
     public override void Move(Vector2 direction)
     {
+        /*
+        if (_isPaused && _mover.CanJump == false)
+            return;
+        */
+
+        if (_combat.IsBlocking)
+            return;
+
         _mover.Move(direction);
         _animator.PlayRun(true);
     }
 
     public override void Strike()
     {
+        if (_isPaused)
+            return;
+
         _combat.Strike(_spriteRendeter.FlipX);
         _animator.PlayStrike();
     }
 
     public override void Ultimate()
     {
+        if (_isPaused)
+            return;
+
         Debug.Log("Ultimate");
     }
 
@@ -70,5 +99,15 @@ public class Warrior : Character
     {
         _mover.StopMove();
         _animator.PlayRun(false);
+    }
+
+    public override void Unpause()
+    {
+        _isPaused = false;
+    }
+
+    public override void Pause()
+    {
+        _isPaused = true;
     }
 }

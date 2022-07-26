@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Character))]
-[RequireComponent(typeof(PlayerSound))]
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private KeyCode _moveLeft = KeyCode.A;
@@ -17,12 +16,10 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private KeyCode _ultimate = KeyCode.R;
 
     private Character _character;
-    private PlayerSound _playerSound;
 
     private void Start()
     {
         _character = GetComponent<Character>();
-        _playerSound = GetComponent<PlayerSound>();
     }
 
     private void Update()
@@ -37,6 +34,16 @@ public class PlayerInput : MonoBehaviour
             _character.Move(Vector2.right);
             _character.FlipSpriteX(false);
         }
+        else if (Input.GetKeyDown(_block))
+        {
+            _character.Block(true);
+            _character.Pause();
+        }
+        else if (Input.GetKeyUp(_block))
+        {
+            _character.Block(false);
+            _character.Unpause();
+        }
         else
         {
             _character.StopMove();
@@ -45,35 +52,25 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(_jump))
         {
             _character.Jump();
-            _playerSound.PlayJumpClip();
+            _character.Pause();
         }
 
         if (Input.GetKeyDown(_dash))
         {
             _character.Dash();
-            _playerSound.PlayDashClip();
+            _character.Pause();
         }
 
         if (Input.GetKeyDown(_attack))
         {
             _character.Attack();
-            _playerSound.PlayAttackClip();
+            _character.Pause();
         }
 
         if (Input.GetKeyDown(_strike))
         {
             _character.Strike();
-            _playerSound.PlayStrikeClip();
-        }
-
-        if (Input.GetKeyDown(_block))
-        {
-            _character.Block(true);
-            _playerSound.PlayBlockClip();
-        }
-        else if (Input.GetKeyUp(_block))
-        {
-            _character.Block(false);
+            _character.Pause();
         }
     }
 }

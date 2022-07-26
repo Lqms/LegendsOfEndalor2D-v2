@@ -20,7 +20,12 @@ public class WarriorCombat : MonoBehaviour
     [SerializeField] private Transform _leftArm;
     [SerializeField] private Transform _rightArm;
 
+    [SerializeField] private float _defenseRate = 100;
+    [SerializeField] private float _currentDefenseRate = 0;
+
     private Projectile _activeProjectile;
+
+    public bool IsBlocking { get; private set; }
 
     public void Attack(bool isSpriteXFlipped)
     {    
@@ -53,5 +58,15 @@ public class WarriorCombat : MonoBehaviour
         }
 
         _activeProjectile.Initialize(_strikeProjectileTime, _strikeProjectileDamage, true);
+    }
+
+    public void Block(bool isBlocking)
+    {
+        IsBlocking = isBlocking;
+
+        if (isBlocking)
+            _currentDefenseRate = _defenseRate;
+        else
+            _currentDefenseRate = 0;
     }
 }
