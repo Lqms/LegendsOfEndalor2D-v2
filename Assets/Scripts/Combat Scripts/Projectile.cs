@@ -16,13 +16,18 @@ public class Projectile : MonoBehaviour
         _attacker = GetComponent<Attacker>();
     }
 
-    public void Initialize(Vector2 direction, float speed, float timeToDestroy, float damage, bool isDestroyingOnHit)
+    public void Initialize(float timeToDestroy, float damage, bool isDestroyingOnHit)
     {
         _isDestroyingOnHit = isDestroyingOnHit;
         _attacker.SetDamage(damage);
-        _rigidBody.velocity = direction.normalized * speed;
         Destroy(gameObject, timeToDestroy);
     }
+
+    public void SetDirection(Vector2 direction, float speed)
+    {
+        _rigidBody.velocity = direction.normalized * speed;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

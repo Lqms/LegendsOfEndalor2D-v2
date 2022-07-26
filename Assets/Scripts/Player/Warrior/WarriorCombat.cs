@@ -20,31 +20,38 @@ public class WarriorCombat : MonoBehaviour
     [SerializeField] private Transform _leftArm;
     [SerializeField] private Transform _rightArm;
 
+    private Projectile _activeProjectile;
+
     public void Attack(bool isSpriteXFlipped)
     {    
+
         if (isSpriteXFlipped)
         {
-            Projectile projectile = Instantiate(_attackProjectile, _leftArm.position, Quaternion.identity);
-            projectile.Initialize(Vector2.left, _attackProjectileSpeed, _attackProjectileTime, _attackProjectileDamage, false);
+            _activeProjectile = Instantiate(_attackProjectile, _leftArm.position, Quaternion.identity);
+            _activeProjectile.SetDirection(Vector2.left, _attackProjectileSpeed);
         }
         else
         {
-            Projectile projectile = Instantiate(_attackProjectile, _rightArm.position, Quaternion.identity);
-            projectile.Initialize(Vector2.right, _attackProjectileSpeed, _attackProjectileTime, _attackProjectileDamage, false);
+            _activeProjectile = Instantiate(_attackProjectile, _rightArm.position, Quaternion.identity);
+            _activeProjectile.SetDirection(Vector2.right, _attackProjectileSpeed);
         }
+        
+        _activeProjectile.Initialize(_attackProjectileTime, _attackProjectileDamage, false);
     }
 
     public void Strike(bool isSpriteXFlipped)
     {
         if (isSpriteXFlipped)
         {
-            Projectile projectile = Instantiate(_strikeProjectile, _leftArm.position, Quaternion.identity);
-            projectile.Initialize(Vector2.left, _strikeProjectileSpeed, _strikeProjectileTime, _strikeProjectileDamage, true);
+            _activeProjectile = Instantiate(_strikeProjectile, _leftArm.position, Quaternion.identity);
+            _activeProjectile.SetDirection(Vector2.left, _strikeProjectileSpeed);
         }
         else
         {
-            Projectile projectile = Instantiate(_strikeProjectile, _rightArm.position, Quaternion.identity);
-            projectile.Initialize(Vector2.right, _strikeProjectileSpeed, _strikeProjectileTime, _strikeProjectileDamage, true);
+            _activeProjectile = Instantiate(_strikeProjectile, _rightArm.position, Quaternion.identity);
+            _activeProjectile.SetDirection(Vector2.right, _strikeProjectileSpeed);
         }
+
+        _activeProjectile.Initialize(_strikeProjectileTime, _strikeProjectileDamage, true);
     }
 }
