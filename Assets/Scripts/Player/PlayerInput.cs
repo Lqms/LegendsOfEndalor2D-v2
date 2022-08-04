@@ -34,14 +34,6 @@ public class PlayerInput : MonoBehaviour
             _character.Move(Vector2.right);
             _character.FlipSpriteX(false);
         }
-        else if (Input.GetKeyDown(_block))
-        {
-            _character.Block(true);
-        }
-        else if (Input.GetKeyUp(_block))
-        {
-            _character.Block(false);
-        }
         else
         {
             _character.StopMove();
@@ -65,6 +57,20 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(_strike))
         {
             _character.Strike();
+        }
+
+        if (Input.GetKeyDown(_block))
+        {
+            _character.Block(true);
+        }
+        else if (Input.GetKeyUp(_block))
+        {
+            _character.Block(false);
+        }
+
+        if (Input.GetKeyDown(_ultimate))
+        {
+            _character.CastUltimate();
         }
     }
 }

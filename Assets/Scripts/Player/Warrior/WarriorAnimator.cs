@@ -13,6 +13,7 @@ public class WarriorAnimator : MonoBehaviour
     private const string Attack = "Attack";
     private const string Strike = "Strike";
     private const string IsBlocking = "IsBlocking";
+    private const string Ultimate = "Ultimate";
 
     private void Start()
     {
@@ -47,5 +48,10 @@ public class WarriorAnimator : MonoBehaviour
     public void PlayBlock(bool isBlocking)
     {
         _animator.SetBool(IsBlocking, isBlocking);
+    }
+
+    public void PlayUltimate()
+    {
+        _animator.SetTrigger(Ultimate);
     }
 }

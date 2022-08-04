@@ -39,7 +39,7 @@ public class Character : MonoBehaviour
         
     }
 
-    public virtual void Ultimate()
+    public virtual void CastUltimate()
     {
         
     }

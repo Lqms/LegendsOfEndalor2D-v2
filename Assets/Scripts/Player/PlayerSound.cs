@@ -11,6 +11,7 @@ public class PlayerSound : MonoBehaviour
     [SerializeField] private AudioClip _attackClip;
     [SerializeField] private AudioClip _strikeClip;
     [SerializeField] private AudioClip _blockClip;
+    [SerializeField] private AudioClip _ultimateClip;
 
     private AudioSource _audioSource;
 
@@ -46,6 +47,11 @@ public class PlayerSound : MonoBehaviour
 
     public void PlayBlockClip()
     {
-        _audioSource?.PlayOneShot(_blockClip);
+        _audioSource.PlayOneShot(_blockClip);
+    }
+
+    public void PlayUltimateClip()
+    {
+        _audioSource.PlayOneShot(_ultimateClip);
     }
 }

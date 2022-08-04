@@ -266,6 +266,7 @@ MonoBehaviour:
   _attackClip: {fileID: 8300000, guid: fc40ee33aa6130e459814a2fa0af07cc, type: 3}
   _strikeClip: {fileID: 8300000, guid: e66b9e1e0a7c76c47a49c57c04464303, type: 3}
   _blockClip: {fileID: 8300000, guid: d0e78ba8bf94a3848b8f249d44c6f5bc, type: 3}
+  _ultimateClip: {fileID: 8300000, guid: 2eae5083e677ffb48b16013bbb8c69f2, type: 3}
 --- !u!114 &5080150930773014366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +298,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _radiusLegs: 1
-  _legs: {fileID: 8791729401780724636}
   _canJump: 0
 --- !u!114 &4404422776273536343
 MonoBehaviour:
@@ -311,6 +311,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b59dc5165d82ea4a9035c8fd070230b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _legs: {fileID: 8791729401780724636}
+  _leftArm: {fileID: 6607229327390038600}
+  _rightArm: {fileID: 5545319135424967347}
 --- !u!114 &6779426581945133269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,10 +366,9 @@ MonoBehaviour:
   _strikeProjectileTime: 2
   _strikeProjectileSpeed: 10
   _strikeProjectileDamage: 15
-  _leftArm: {fileID: 6607229327390038600}
-  _rightArm: {fileID: 5545319135424967347}
   _defenseRate: 100
   _currentDefenseRate: 0
+  _currentParticle: {fileID: 5061151894428645712}
 --- !u!1 &5541752638692435796
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +455,79 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.057, y: -0.885, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2195749480812073406}
   m_Father: {fileID: 1397233731683457794}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &9090710278537662243
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8791729401780724636}
+    m_Modifications:
+    - target: {fileID: 4040962519300060787, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940168322226298525, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940168322226298525, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940168322226298525, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.067
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940168322226298525, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940168322226298525, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940168322226298525, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940168322226298525, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940168322226298525, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940168322226298525, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940168322226298525, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940168322226298525, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7091263143563519239, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+      propertyPath: m_Name
+      value: ThunderClap
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+--- !u!4 &2195749480812073406 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6940168322226298525, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+  m_PrefabInstance: {fileID: 9090710278537662243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5061151894428645712 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4040962519300060787, guid: bebe0b85ab5420c4589374037ce5587d, type: 3}
+  m_PrefabInstance: {fileID: 9090710278537662243}
+  m_PrefabAsset: {fileID: 0}

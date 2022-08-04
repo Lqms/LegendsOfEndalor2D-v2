@@ -8,12 +8,21 @@ using UnityEngine;
 [RequireComponent(typeof(WarriorCombat))]
 public class Warrior : Character
 {
+    [Header("Body")]
+    [SerializeField] private Transform _legs;
+    [SerializeField] private Transform _leftArm;
+    [SerializeField] private Transform _rightArm;
+
     private WarriorMover _mover;
     private WarriorSpriteRenderer _spriteRendeter;
     private WarriorAnimator _animator;
     private WarriorCombat _combat;
 
     private bool _isPaused = false;
+
+    public Transform Legs => _legs;
+    public Transform LeftArm => _leftArm;
+    public Transform RightArm => _rightArm;
 
     private void Start()
     {
@@ -74,11 +83,6 @@ public class Warrior : Character
 
     public override void Move(Vector2 direction)
     {
-        /*
-        if (_isPaused && _mover.CanJump == false)
-            return;
-        */
-
         if (_combat.IsBlocking)
             return;
 
@@ -97,12 +101,15 @@ public class Warrior : Character
         _animator.PlayStrike();
     }
 
-    public override void Ultimate()
+    public override void CastUltimate()
     {
         if (_isPaused)
             return;
 
-        Debug.Log("Ultimate");
+        Pause();
+
+        _combat.CastUltimate();
+        _animator.PlayUltimate();
     }
 
     public override void StopMove()

@@ -13,20 +13,21 @@ public class WarriorMover : MonoBehaviour
     [SerializeField] private float _jumpPower;
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private float _radiusLegs;
-    [SerializeField] private Transform _legs;
     [SerializeField] private bool _canJump;
 
     private Rigidbody2D _rigidbody;
     private Vector2 _direction;
+    private Warrior _warrior;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _warrior = GetComponent<Warrior>();
     }
 
     private void FixedUpdate()
     {
-        _canJump = Physics2D.OverlapCircle(_legs.position, _radiusLegs, _groundMask);
+        _canJump = Physics2D.OverlapCircle(_warrior.Legs.position, _radiusLegs, _groundMask);
     }
 
     public void Move(Vector2 direction)

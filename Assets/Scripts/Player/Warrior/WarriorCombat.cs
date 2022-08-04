@@ -16,28 +16,34 @@ public class WarriorCombat : MonoBehaviour
     [SerializeField] private float _strikeProjectileSpeed = 5;
     [SerializeField] private float _strikeProjectileDamage = 15;
 
-    [Header("Arms")]
-    [SerializeField] private Transform _leftArm;
-    [SerializeField] private Transform _rightArm;
-
+    [Header("Block")]
     [SerializeField] private float _defenseRate = 100;
     [SerializeField] private float _currentDefenseRate = 0;
 
+    [Header("Ultimate")]
+    [SerializeField] private ParticleSystem _currentParticle;
+
     private Projectile _activeProjectile;
+    private Warrior _warrior;
 
     public bool IsBlocking { get; private set; }
+
+    private void Start()
+    {
+        _warrior = GetComponent<Warrior>();
+    }
 
     public void Attack(bool isSpriteXFlipped)
     {    
 
         if (isSpriteXFlipped)
         {
-            _activeProjectile = Instantiate(_attackProjectile, _leftArm.position, Quaternion.identity);
+            _activeProjectile = Instantiate(_attackProjectile, _warrior.LeftArm.position, Quaternion.identity);
             _activeProjectile.SetDirection(Vector2.left, _attackProjectileSpeed);
         }
         else
         {
-            _activeProjectile = Instantiate(_attackProjectile, _rightArm.position, Quaternion.identity);
+            _activeProjectile = Instantiate(_attackProjectile, _warrior.RightArm.position, Quaternion.identity);
             _activeProjectile.SetDirection(Vector2.right, _attackProjectileSpeed);
         }
         
@@ -48,12 +54,12 @@ public class WarriorCombat : MonoBehaviour
     {
         if (isSpriteXFlipped)
         {
-            _activeProjectile = Instantiate(_strikeProjectile, _leftArm.position, Quaternion.identity);
+            _activeProjectile = Instantiate(_strikeProjectile, _warrior.LeftArm.position, Quaternion.identity);
             _activeProjectile.SetDirection(Vector2.left, _strikeProjectileSpeed);
         }
         else
         {
-            _activeProjectile = Instantiate(_strikeProjectile, _rightArm.position, Quaternion.identity);
+            _activeProjectile = Instantiate(_strikeProjectile, _warrior.RightArm.position, Quaternion.identity);
             _activeProjectile.SetDirection(Vector2.right, _strikeProjectileSpeed);
         }
 
@@ -68,5 +74,10 @@ public class WarriorCombat : MonoBehaviour
             _currentDefenseRate = _defenseRate;
         else
             _currentDefenseRate = 0;
+    }
+
+    public void CastUltimate()
+    {
+        _currentParticle.Play();
     }
 }
