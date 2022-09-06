@@ -1,14 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using IJunior.TypedScenes;
 
-public class AcceptChoose : MonoBehaviour
+public class ClassAcceptChooseHandler : MonoBehaviour
 {
     [Header ("Script Objects")]
-    [SerializeField] private CreateCharacterManager _createCharacterManager;
+    [SerializeField] private CharacterCreateHandler _createCharacterManager;
     [SerializeField] private ClassSwitcher _classSwitcher;
     [SerializeField] private Intro _intro;
 
@@ -19,8 +17,13 @@ public class AcceptChoose : MonoBehaviour
     [SerializeField] private Image _imageAcceptChoose;
     [SerializeField] private Button _buttonClose;
 
+    private Image _curtain;
+
+
     private void OnEnable()
     {
+        _curtain = _panelAcceptChoose.GetComponent<Image>();
+
         _button.onClick.AddListener(StartIntro);
         _classSwitcher.SwitchClassButtonClicked += OnSwitchClass;
         _createCharacterManager.ButtonChooseClicked += OnButtonChooseClicked;
@@ -48,18 +51,18 @@ public class AcceptChoose : MonoBehaviour
         _imageAcceptChoose.gameObject.SetActive(false);
         _buttonClose.gameObject.SetActive(false);
 
-        StartCoroutine(CurtainCoroutine());
+        StartCoroutine(CurtainFading());
     }
 
-    private IEnumerator CurtainCoroutine()
+    private IEnumerator CurtainFading()
     {
         float alpha = 0;
         
         while (alpha < 1)
         {
-            _panelAcceptChoose.GetComponent<Image>().color = new Color(0, 0, 0, alpha);
+            _curtain.color = new Color(0, 0, 0, alpha);
             alpha += Time.deltaTime;
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return null;
         }
 
         _intro.gameObject.SetActive(true);

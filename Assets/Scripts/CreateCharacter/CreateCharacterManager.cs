@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
-public class CreateCharacterManager : MonoBehaviour
+public class CharacterCreateHandler : MonoBehaviour
 {
     [Header("Script Objects")]
     [SerializeField] private ClassSwitcher _classSwitcher;

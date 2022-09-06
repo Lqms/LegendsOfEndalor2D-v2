@@ -31,10 +31,10 @@ public class GameStarter : MonoBehaviour
     {
         _UIElements.SetActive(false);
         CursorViewChanger.Instance.SetCursorVisible(false);
-        StartCoroutine(StartNewGameCoroutine());
+        StartCoroutine(StartingNewGame());
     }
 
-    private IEnumerator StartNewGameCoroutine()
+    private IEnumerator StartingNewGame()
     {
         float alpha = 1;
 

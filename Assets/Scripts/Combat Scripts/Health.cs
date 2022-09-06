@@ -35,12 +35,12 @@ public class Health : MonoBehaviour
             else
             {
                 AudioManager.Instance.PlaySound(_damageTakenClip);
-                StartCoroutine(ChangeColorCoroutine());
+                StartCoroutine(ChangingColor());
             }
         }
     }
 
-    private IEnumerator ChangeColorCoroutine()
+    private IEnumerator ChangingColor()
     {
         _spriteRenderer.color = _damagedColor;
         yield return new WaitForSeconds(_changeColorTime);

@@ -4,7 +4,7 @@ using UnityEngine;
 using IJunior.TypedScenes;
 using Cinemachine;
 
-public class CharacterCreator : MonoBehaviour, ISceneLoadHandler<Classes>
+public class CharacterCreateHandler : MonoBehaviour, ISceneLoadHandler<Classes>
 {
     [SerializeField] private GameObject[] _characterPrefabs;
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;

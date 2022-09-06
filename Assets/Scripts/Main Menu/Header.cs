@@ -17,10 +17,10 @@ public class Header : MonoBehaviour
     {
         _header.colorGradient = new VertexGradient(_firstColor, _secondColor, _firstColor, _secondColor);
 
-        StartCoroutine(ShowTextCoroutine());
+        StartCoroutine(ShowingText());
     }
 
-    private IEnumerator ShowTextCoroutine()
+    private IEnumerator ShowingText()
     {
         float alpha = 0;
 

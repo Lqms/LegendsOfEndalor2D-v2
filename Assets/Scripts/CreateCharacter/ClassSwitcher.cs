@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+public enum Classes { Warrior, Archer, Mage }
+
 public class ClassSwitcher : MonoBehaviour
 {
     [SerializeField] private Button _button;
@@ -28,7 +30,7 @@ public class ClassSwitcher : MonoBehaviour
     {
         _classId++;
 
-        if (_classId > (int)Classes.Mage) // костыль блин
+        if (_classId > (int)Classes.Mage)
             _classId = 0;
 
         switch (_classId)

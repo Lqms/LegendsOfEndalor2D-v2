@@ -28,7 +28,7 @@ public class Intro : MonoBehaviour
         Cursor.visible = false;
         _settings.gameObject.SetActive(false);
         AudioManager.Instance.ChangeMainClip(_introAudio);
-        StartCoroutine(PlayCoroutine());
+        StartCoroutine(Playing());
     }
 
     private void Update()
@@ -37,7 +37,7 @@ public class Intro : MonoBehaviour
             StartGame();
     }
 
-    private IEnumerator PlayCoroutine()
+    private IEnumerator Playing()
     {
         for (int i = 0; i < _slides.Length; i++)
         {
@@ -50,7 +50,7 @@ public class Intro : MonoBehaviour
             {
                 alpha += Time.deltaTime;
                 _currentSlideImage.color = new Color(1, 1, 1, alpha);
-                yield return new WaitForSeconds(Time.deltaTime);
+                yield return null;
             }
 
             _currentSlideText.text = _slides[i].Text;
@@ -61,7 +61,7 @@ public class Intro : MonoBehaviour
             {
                 alpha -= Time.deltaTime;
                 _currentSlideImage.color = new Color(1, 1, 1, alpha);
-                yield return new WaitForSeconds(Time.deltaTime);
+                yield return null;
             }
         }
 

@@ -16,7 +16,7 @@ public class CameraZoom : MonoBehaviour
         _camera = GetComponent<CinemachineVirtualCamera>();
     }
 
-    void Update()
+    private void Update()
     {
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 

@@ -34,10 +34,10 @@ public class SceneLoadProgress : MonoBehaviour
     public void LoadScene(AsyncOperation asyncOperation)
     {
         _asyncOperationForLoadingScene = asyncOperation;
-        StartCoroutine(SceneLoadingCoroutine());
+        StartCoroutine(SceneLoading());
     }
 
-    private IEnumerator SceneLoadingCoroutine()
+    private IEnumerator SceneLoading()
     {
         // GetNewHintForLoadingPanel();
         _textLoadingSceneHint.text = "Cake is a lie";
