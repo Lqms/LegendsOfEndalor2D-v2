@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Warrior))]
 public class WarriorCombat : MonoBehaviour
 {
     [Header("Attack projectile")]

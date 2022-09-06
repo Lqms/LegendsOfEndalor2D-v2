@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using IJunior.TypedScenes;
 
+[RequireComponent(typeof(Image))]
 public class GameStarter : MonoBehaviour
 {
     [SerializeField] private Menu _menu;

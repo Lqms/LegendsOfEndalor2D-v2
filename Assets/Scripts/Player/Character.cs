@@ -2,60 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
-    public virtual void Attack()
-    {
-        
-    }
+    public abstract void Attack();
 
-    public virtual void Block(bool isBlocking)
-    {
-        
-    }
+    public abstract void Block(bool isBlocking);
 
-    public virtual void Dash()
-    {
-        ;
-    }
+    public abstract void Dash();
 
-    public virtual void FlipSpriteX(bool isFlipped)
-    {
-        
-    }
+    public abstract void FlipSpriteX(bool isFlipped);
 
-    public virtual void Jump()
-    {
-        
-    }
+    public abstract void Jump();
 
-    public virtual void Move(Vector2 direction)
-    {
-        
-    }
+    public abstract void Move(Vector2 direction);
 
-    public virtual void Strike()
-    {
-        
-    }
+    public abstract void Strike();
 
-    public virtual void CastUltimate()
-    {
-        
-    }
+    public abstract void CastUltimate();
 
-    public virtual void StopMove()
-    {
-        
-    }
+    public abstract void StopMove();
 
-    public virtual void Unpause()
-    {
+    public abstract void Unpause();
 
-    }
-
-    public virtual void Pause()
-    {
-
-    }
+    public abstract void Pause();
 }

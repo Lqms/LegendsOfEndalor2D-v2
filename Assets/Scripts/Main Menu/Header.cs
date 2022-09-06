@@ -29,7 +29,7 @@ public class Header : MonoBehaviour
             _firstColor = new Color(1, 0.7878788f, 0, alpha);
             alpha += Time.deltaTime;
             _header.colorGradient = new VertexGradient(_firstColor, _secondColor, _firstColor, _secondColor);
-            yield return new WaitForSeconds(0.001f);
+            yield return null;
         }
 
         alpha = 0;
@@ -39,7 +39,7 @@ public class Header : MonoBehaviour
             _secondColor = new Color(1, 0.7215686f, 0, alpha);
             alpha += Time.deltaTime;
             _header.colorGradient = new VertexGradient(_firstColor, _secondColor, _firstColor, _secondColor);
-            yield return new WaitForSeconds(0.001f);
+            yield return null;
         }
 
         Showed?.Invoke();

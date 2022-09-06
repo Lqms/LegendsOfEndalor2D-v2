@@ -39,10 +39,8 @@ public class SceneLoadProgress : MonoBehaviour
 
     private IEnumerator SceneLoading()
     {
-        // GetNewHintForLoadingPanel();
         _textLoadingSceneHint.text = "Cake is a lie";
         _panelLoadingScene.SetActive(true);
-        // yield return new WaitForSeconds(1f);
 
         while (!_asyncOperationForLoadingScene.isDone)
         {

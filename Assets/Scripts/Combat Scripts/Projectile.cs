@@ -34,7 +34,9 @@ public class Projectile : MonoBehaviour
         if (collision.TryGetComponent(out PlayerInput player))
             return;
 
+        float timeToDestroy = 0.1f;
+
         if (_isDestroyingOnHit)
-            Destroy(gameObject, 0.1f);
+            Destroy(gameObject, timeToDestroy);
     }
 }
